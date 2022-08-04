@@ -88,8 +88,8 @@ const AddAnchor = (event) =>{
     position: project({ x: event.clientX - 20, y: event.clientY - 20}),
   }
   addNodes([newNode])
-  const newEdge1 = { id: 'e1-3', source: props.source, target: `anchor-node-${id}` };
-  const newEdge2 = { id: 'e1-3', source: `anchor-node-${id}`, target: props.target };
+  const newEdge1 = { id: `e1-${id}`, source: props.source, target: `anchor-node-${id}`,type: 'custom' };
+  const newEdge2 = { id: `e1-${id}`, source: `anchor-node-${id}`, target: props.target , type: 'custom'};
   addEdges([newEdge1, newEdge2]);
   applyEdgeChanges([{ type: 'remove', id: props.id}])
 }

@@ -31,8 +31,8 @@ const useStore = defineStore('elementsStore', {
           position: { x: 400, y: 200 },
           class: 'light',
         },
-        { id: 'e1-2', source: '1', target: '2' },
-        { id: 'e1-3', source: '1', target: '3' },
+        { id: 'e1-2', source: '1', target: '2',  type: 'custom'},
+        { id: 'e1-3', source: '1', target: '3',  type: 'custom'},
         { id: 'e3-4', source: '3', target: '4', type: 'custom'},
       ],
     };
