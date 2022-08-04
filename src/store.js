@@ -16,24 +16,17 @@ const useStore = defineStore('elementsStore', {
         {
           id: '2',
           label: 'Node 2',
-          position: { x: 100, y: 100 },
+          position: { x: 400, y: 100 },
           class: 'light',
         },
         {
           id: '3',
           label: 'Node 3',
-          position: { x: 400, y: 100 },
-          class: 'light',
-        },
-        {
-          id: '4',
-          label: 'Node 4',
           position: { x: 400, y: 200 },
           class: 'light',
         },
         { id: 'e1-2', source: '1', target: '2',  type: 'custom'},
-        { id: 'e1-3', source: '1', target: '3',  type: 'custom'},
-        { id: 'e3-4', source: '3', target: '4', type: 'custom'},
+        { id: 'e2-3', source: '2', target: '3', type: 'custom'},
       ],
     };
   },
