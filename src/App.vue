@@ -3,7 +3,9 @@ import { VueFlow, useVueFlow,Elements, FlowEvents, VueFlowStore } from '@braks/v
 import { computed, watch, nextTick } from 'vue';
 import useStore from './store.js';
 import Controls from './Controls.vue'
-import reStore from './undoredo.js';
+
+import CustomConnectionLine from './CustomConnectionLine.vue'
+import CustomEdge from './CustomEdge.vue'
 
 
 const store = useStore();
@@ -33,6 +35,12 @@ onEdgesChange((e) => {
   :fit-view-on-init="true"
 
   >
+    <!--<template #connection-line="props">
+      <CustomConnectionLine v-bind="props" />
+    </template>-->
+    <template #edge-custom="props">
+      <CustomEdge v-bind="props" />
+    </template>
     <div style="position: absolute; right: 10px; top: 10px; z-index: 4">
       <button @click="store.log">log store state</button>
       <button @click="updateStore">Update Store</button>
@@ -48,6 +56,6 @@ onEdgesChange((e) => {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>
