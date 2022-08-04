@@ -10,7 +10,8 @@ const onAdd = () => {
   const newNode = {
     id: `random_node-${id}`,
     label: `Node ${id}`,
-    position: { x: Math.random() * dimensions.value.width, y: Math.random() * dimensions.value.height },
+    type: 'anchor',
+    position: project({ x: dimensions.value.width / 2, y: dimensions.value.height / 2}),
   }
   addNodes([newNode])
 }

@@ -45,7 +45,8 @@ const props = defineProps({
   },
 })
 
-const { applyEdgeChanges } = useVueFlow()
+const { applyEdgeChanges, nodes, addNodes, setNodes, setEdges, dimensions, setTransform, toObject,project } = useVueFlow()
+
 
 const foreignObjectSize = 40
 
@@ -76,7 +77,16 @@ const center = computed(() =>
 
 const AddAnchor = (event) =>{
   console.log("add anchor node")
+
+  const id = nodes.value.length + 1
+  const newNode = {
+    id: `anchor-node-${id}`,
+    type: 'anchor',
+    position: project({ x: dimensions.value.width / 2, y: dimensions.value.height / 2}),
+  }
+  addNodes([newNode])
 }
+
 </script>
 
 <script>
