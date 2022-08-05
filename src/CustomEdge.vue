@@ -69,17 +69,15 @@ const edgePath = computed(() =>
   }),
 )
 
-const center = computed(() =>
-  getEdgeCenter({
-    sourceX: props.sourceX,
-    sourceY: props.sourceY,
-    targetX: props.targetX,
-    targetY: props.targetY,
-  }),
-)
+
 
 console.log("the source position is:  " + props.sourceX + " : " + props.sourceY + " : " + props.targetX + " : " + props.targetY );
 
+
+
+/*
+ANGLE could be used to work out the positions best suited to the node and it's position and could be passed in as props
+*/
 const angle = ref(0);
 onNodesChange((e) => {
   angle.value = Math.round(Math.atan2( props.targetY - props.sourceY , props.targetX - props.sourceX ) * ( 180 / Math.PI ))
@@ -96,7 +94,7 @@ const AddAnchor = (event) =>{
   const newNode = {
     id: `anchor-node-${id}`,
     type: 'anchor',
-    position: project({ x: event.clientX + 10 , y: event.clientY + 10 }),
+    position: project({ x: event.clientX + 16 , y: event.clientY + 16 }),
     data: {
       angle: angle.value,
     },
