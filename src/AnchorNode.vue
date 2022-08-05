@@ -27,22 +27,32 @@ const onSelect = (color) => {
 </script>
 
 <template>
-  <div class="Anchor">
+  <div class="anchor-draghandle"> </div>
+  <div class="anchor">
   <Handle id="a" type="target" class="anchor-handle anchor-handle-a" :position="Position.Left"/>
   <Handle id="b" type="source" class="anchor-handle anchor-handle-b" :position="Position.Right"/>
   </div>
 </template>
 
 <style>
-.Anchor{
+
+.anchor-draghandle{
   width: 20px;
   height: 20px;
   border: 2px solid rgba(0,0,0,0);
+  position:absolute;
+  top:-20px;
+  left:-20px;
 }
 
-.vue-flow__node-anchor.selected .Anchor {
-  width: 20px;
-  height: 20px;
+.anchor{
+  width: 0px;
+  height: 0px;
+  border: 2px solid rgba(0,0,0,0);
+}
+
+.vue-flow__node-anchor.selected .anchor-draghandle{
+
   border: 2px solid white;
 }
 

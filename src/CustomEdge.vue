@@ -99,7 +99,8 @@ const AddAnchor = (event) =>{
     position: project({ x: event.clientX - 20, y: event.clientY - 20}),
     data: {
       angle: angle.value,
-    }
+    },
+    dragHandle:".anchor-draghandle",
   }
   addNodes([newNode])
   const edgeid = edges.value.length + 1
