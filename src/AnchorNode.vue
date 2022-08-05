@@ -1,12 +1,23 @@
 <script setup>
-import { Handle, Position } from '@braks/vue-flow'
+import { Handle, Position, useVueFlow } from '@braks/vue-flow'
 import { computed } from 'vue'
 
 const props = defineProps({
-
+  data: {
+    angle: Number,
+  }
 })
 
-const onConnect = (params) => console.log('handle onConnect', params)
+let positionA, positionB;
+
+const { applyEdgeChanges, nodes, edges,addNodes,addEdges, setNodes, setEdges, dimensions, setTransform, onNodesChange } = useVueFlow()
+
+onNodesChange((e) => {
+console.log(props.data.angle);
+console.log("nodes changed");
+})
+
+const onConnect = (params) => console.log('handle onConnect', params, )
 
 const onSelect = (color) => {
   //emit('change', color)

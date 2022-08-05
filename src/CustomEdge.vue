@@ -1,6 +1,7 @@
 <script setup>
 import { getBezierPath, getEdgeCenter, useVueFlow } from '@braks/vue-flow'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+
 
 const props = defineProps({
   id: {
@@ -47,7 +48,7 @@ const props = defineProps({
   target: String,
 })
 
-const { applyEdgeChanges, nodes, edges,addNodes,addEdges, setNodes, setEdges, dimensions, setTransform, toObject,project } = useVueFlow()
+const { applyEdgeChanges, nodes, edges,addNodes,addEdges, setNodes, setEdges, dimensions, setTransform, toObject,project,onNodesChange } = useVueFlow()
 
 
 const foreignObjectSize = 40
@@ -77,6 +78,16 @@ const center = computed(() =>
   }),
 )
 
+console.log("the source position is:  " + props.sourceX + " : " + props.sourceY + " : " + props.targetX + " : " + props.targetY );
+
+const angle = ref(0);
+onNodesChange((e) => {
+  angle.value = Math.round(Math.atan2( props.targetY - props.sourceY , props.targetX - props.sourceX ) * ( 180 / Math.PI ))
+  //console.log(angle)
+});
+
+
+
 const AddAnchor = (event) =>{
   console.log("add anchor node")
 
@@ -86,6 +97,9 @@ const AddAnchor = (event) =>{
     id: `anchor-node-${id}`,
     type: 'anchor',
     position: project({ x: event.clientX - 20, y: event.clientY - 20}),
+    data: {
+      angle: angle.value,
+    }
   }
   addNodes([newNode])
   const edgeid = edges.value.length + 1
