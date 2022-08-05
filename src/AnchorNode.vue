@@ -17,12 +17,6 @@ console.log(props.data.angle);
 console.log("nodes changed");
 })
 
-const onConnect = (params) => console.log('handle onConnect', params, )
-
-const onSelect = (color) => {
-  //emit('change', color)
-}
-
 
 </script>
 
@@ -41,8 +35,8 @@ const onSelect = (color) => {
   height: 20px;
   border: 2px solid rgba(0,0,0,0);
   position:absolute;
-  top:-20px;
-  left:-20px;
+  top:-19.5px;
+  left:-19.5px;
 }
 
 .anchor{
@@ -52,8 +46,8 @@ const onSelect = (color) => {
 }
 
 .vue-flow__node-anchor.selected .anchor-draghandle{
-
-  border: 2px solid white;
+  border: 1px dotted #000bff7a;
+  border-radius: 40%;
 }
 
 .anchor-handle{
