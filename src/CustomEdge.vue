@@ -96,7 +96,7 @@ const AddAnchor = (event) =>{
   const newNode = {
     id: `anchor-node-${id}`,
     type: 'anchor',
-    position: project({ x: event.clientX - 20, y: event.clientY - 20}),
+    position: project({ x: event.clientX + 10 , y: event.clientY + 10 }),
     data: {
       angle: angle.value,
     },
